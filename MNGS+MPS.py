@@ -1,3 +1,4 @@
+#Методы наискорейшего градиентного и покоординатного спуска
 import scipy.linalg
 import numpy as np
 import math
@@ -19,17 +20,6 @@ def matrix(n):
 def positivedef(A):
     A=np.dot(A,A.T)
     return A
-
-
-def isPD(B):
-    """Проверяем, является ли матрица положительно-определенной при помощи разложения Холецкого"""
-    from numpy import linalg as la
-    try:
-        _ = la.cholesky(B)
-        return True
-    except la.LinAlgError:
-        return False
-
 
 def Q(A, b, e):
     """ Генерируем значения для вычисления мю
@@ -63,7 +53,7 @@ x1 = e
 i = 0
 y, q = Q(A, b, x1)
 x2, i = znach(x1, y, q, i)
-while np.linalg.norm(x2 - x1) > 1e-6 :    # некрасивый цикл для поиска последующих приближений
+while np.linalg.norm(x2 - x1) > 1e-6 :   
     x1 = x2                                             # Остановка по норме разницы или большому количеству итераций
     y, q = Q(A, b, x1)
     x2, i = znach(x1, y, q, i)
