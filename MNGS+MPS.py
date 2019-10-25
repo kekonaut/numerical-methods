@@ -44,7 +44,7 @@ print("print size of matrix A")
 n = int(input())
 A, b, e = matrix(n)
 #A = positivedef(A)
-solve = np.linalg.solve(A, b) # Решение
+solve = np.linalg.solve(A, -b) # Решение
 print(A, '    ', b)
 print(Q(A, b, e))
 print('SOLVE')
